@@ -1,8 +1,10 @@
 package com.ljp.shift7;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -15,7 +17,9 @@ import java.util.Map;
 public class Shift7Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Shift7Application.class, args);
+//		SpringApplication.run(Shift7Application.class, args);
+		SpringApplicationBuilder builder = new SpringApplicationBuilder(Shift7Application.class);
+		builder.headless(false).web(WebApplicationType.NONE).run(args);
 
 		List<Map<String, String>> def = Main.readFromExlDef();
 		Map<String, String> names =Main. readFromExlName();
