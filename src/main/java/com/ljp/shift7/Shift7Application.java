@@ -29,6 +29,7 @@ public class Shift7Application {
 		Clipboard systemClipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
 		Transferable tText = new StringSelection(ans);
 		systemClipboard.setContents(tText,null);
+		System.out.println("文本已成功复制到剪贴板");
 	}
 
 }
