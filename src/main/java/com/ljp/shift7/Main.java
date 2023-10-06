@@ -146,14 +146,16 @@ public class Main {
 
     public static String outPut(List<PersonInfoOneDay> personInfoOneDays){
         String ans=JSONArray.toJSONString(personInfoOneDays);
+        String ansFor ="<script>\r\n/* <![CDATA[ */\r\nvar scheduleData=\r\n"+ans+"\r\n;/*]]>*/\r\n</script>";
+
         try {
             FileWriter fw=new FileWriter(pathOut);
-            fw.write(ans);
+            fw.write(ansFor);
             fw.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
-        return ans;
+        return ansFor;
     }
     public static void main(String[] args) {
         List<Map<String, String>> def = readFromExlDef();
